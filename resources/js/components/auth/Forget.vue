@@ -9,62 +9,33 @@
                                 <div class="login-form">
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">
-                                            Register
+                                            Login
                                         </h1>
                                     </div>
-                                    <form>
+                                    <form class="user">
                                         <div class="form-group">
-                                            <label>First Name</label>
-                                            <input
-                                                type="text"
-                                                class="form-control"
-                                                id="exampleInputFirstName"
-                                                placeholder="Enter Full Name"
-                                            />
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Email</label>
                                             <input
                                                 type="email"
                                                 class="form-control"
                                                 id="exampleInputEmail"
                                                 aria-describedby="emailHelp"
-                                                placeholder="Enter Email Address"
+                                                placeholder="Enter Register Email Address"
                                             />
                                         </div>
                                         <div class="form-group">
-                                            <label>Password</label>
-                                            <input
-                                                type="password"
-                                                class="form-control"
-                                                id="exampleInputPassword"
-                                                placeholder="Password"
-                                            />
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Repeat Password</label>
-                                            <input
-                                                type="password"
-                                                class="form-control"
-                                                id="exampleInputPasswordRepeat"
-                                                placeholder="Confirm Password"
-                                            />
-                                        </div>
-                                        <div class="form-group">
-                                            <button
-                                                type="submit"
+                                            <a
+                                                href="index.html"
                                                 class="btn btn-primary btn-block"
+                                                >Forget Password</a
                                             >
-                                                Register
-                                            </button>
                                         </div>
-                                        <!-- <hr />
-                                        <a
+                                        <hr />
+                                        <!-- <a
                                             href="index.html"
                                             class="btn btn-google btn-block"
                                         >
                                             <i class="fab fa-google fa-fw"></i>
-                                            Register with Google
+                                            Login with Google
                                         </a>
                                         <a
                                             href="index.html"
@@ -73,16 +44,14 @@
                                             <i
                                                 class="fab fa-facebook-f fa-fw"
                                             ></i>
-                                            Register with Facebook
+                                            Login with Facebook
                                         </a> -->
                                     </form>
-                                    <hr />
                                     <div class="text-center">
                                         <router-link
                                             class="font-weight-bold small"
                                             to="/"
-                                            >Already have an
-                                            account?</router-link
+                                            >Back to Login</router-link
                                         >
                                     </div>
                                     <div class="text-center"></div>
