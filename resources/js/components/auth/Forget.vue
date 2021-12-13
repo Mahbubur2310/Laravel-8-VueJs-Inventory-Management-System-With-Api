@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="row justify-content-center">
-            <div class="col-xl-10 col-lg-12 col-md-9">
+            <div class="col-xl-5 col-lg-5 col-md-5">
                 <div class="card shadow-sm my-5">
                     <div class="card-body p-0">
                         <div class="row">
@@ -9,7 +9,7 @@
                                 <div class="login-form">
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">
-                                            Login
+                                            Forget Password
                                         </h1>
                                     </div>
                                     <form class="user">

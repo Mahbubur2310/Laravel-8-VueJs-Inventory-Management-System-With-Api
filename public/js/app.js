@@ -28536,7 +28536,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("div", { staticClass: "row justify-content-center" }, [
-      _c("div", { staticClass: "col-xl-10 col-lg-12 col-md-9" }, [
+      _c("div", { staticClass: "col-xl-5 col-lg-5 col-md-5" }, [
         _c("div", { staticClass: "card shadow-sm my-5" }, [
           _c("div", { staticClass: "card-body p-0" }, [
             _c("div", { staticClass: "row" }, [
@@ -28580,7 +28580,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "text-center" }, [
       _c("h1", { staticClass: "h4 text-gray-900 mb-4" }, [
         _vm._v(
-          "\n                                        Login\n                                    "
+          "\n                                        Forget Password\n                                    "
         ),
       ]),
     ])
@@ -28641,7 +28641,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("div", { staticClass: "row justify-content-center" }, [
-      _c("div", { staticClass: "col-xl-10 col-lg-12 col-md-9" }, [
+      _c("div", { staticClass: "col-xl-5 col-lg-5 col-md-5" }, [
         _c("div", { staticClass: "card shadow-sm my-5" }, [
           _c("div", { staticClass: "card-body p-0" }, [
             _c("div", { staticClass: "row" }, [
@@ -28855,7 +28855,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("div", { staticClass: "row justify-content-center" }, [
-      _c("div", { staticClass: "col-xl-10 col-lg-12 col-md-9" }, [
+      _c("div", { staticClass: "col-xl-5 col-lg-5 col-md-5" }, [
         _c("div", { staticClass: "card shadow-sm my-5" }, [
           _c("div", { staticClass: "card-body p-0" }, [
             _c("div", { staticClass: "row" }, [
