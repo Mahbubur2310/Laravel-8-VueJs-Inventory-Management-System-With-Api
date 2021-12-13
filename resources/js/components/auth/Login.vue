@@ -12,7 +12,7 @@
                                             Login
                                         </h1>
                                     </div>
-                                    <form class="user">
+                                    <form class="user" @submit.prevent="login">
                                         <div class="form-group">
                                             <input
                                                 type="email"
@@ -20,6 +20,7 @@
                                                 id="exampleInputEmail"
                                                 aria-describedby="emailHelp"
                                                 placeholder="Enter Email Address"
+                                                v-model="form.email"
                                             />
                                         </div>
                                         <div class="form-group">
@@ -28,6 +29,7 @@
                                                 class="form-control"
                                                 id="exampleInputPassword"
                                                 placeholder="Password"
+                                                v-model="form.password"
                                             />
                                         </div>
                                         <div class="form-group">
@@ -48,11 +50,12 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <a
-                                                href="index.html"
+                                            <button
+                                                type="submit"
                                                 class="btn btn-primary btn-block"
-                                                >Login</a
                                             >
+                                                Login
+                                            </button>
                                         </div>
                                         <hr />
                                         <!-- <a
@@ -97,6 +100,23 @@
     </div>
 </template>
 <script>
-export default {};
+export default {
+    data() {
+        return {
+            form: {
+                email: null,
+                password: null,
+            },
+        };
+    },
+    methods: {
+        login() {
+            axios
+                .post(`/api/auth/login`, this.form)
+                .then((response) => console.log(response.data))
+                .catch((error) => console.log(error.response.data));
+        },
+    },
+};
 </script>
 <style></style>
