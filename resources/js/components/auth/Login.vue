@@ -22,6 +22,11 @@
                                                 placeholder="Enter Email Address"
                                                 v-model="form.email"
                                             />
+                                            <small
+                                                class="text-danger"
+                                                v-if="errors.email"
+                                                >{{ errors.email[0] }}</small
+                                            >
                                         </div>
                                         <div class="form-group">
                                             <input
@@ -31,6 +36,11 @@
                                                 placeholder="Password"
                                                 v-model="form.password"
                                             />
+                                            <small
+                                                class="text-danger"
+                                                v-if="errors.password"
+                                                >{{ errors.password[0] }}</small
+                                            >
                                         </div>
                                         <div class="form-group">
                                             <div
@@ -112,6 +122,7 @@ export default {
                 email: null,
                 password: null,
             },
+            errors: {},
         };
     },
     methods: {
@@ -120,9 +131,19 @@ export default {
                 .post(`/api/auth/login`, this.form)
                 .then((response) => {
                     User.responseAfterLogin(response);
+                    Toast.fire({
+                        icon: "success",
+                        title: "Signed in successfully",
+                    });
                     this.$router.push({ name: "home" });
                 })
-                .catch((error) => console.log(error.response.data));
+                .catch((error) => (this.errors = error.response.data.errors))
+                .catch(
+                    Toast.fire({
+                        icon: "warning",
+                        title: "Invalid Email or Password!",
+                    })
+                );
         },
     },
 };

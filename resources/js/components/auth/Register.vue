@@ -12,7 +12,7 @@
                                             Register
                                         </h1>
                                     </div>
-                                    <form>
+                                    <form class="user" @submit.prevent="signup">
                                         <div class="form-group">
                                             <label>First Name</label>
                                             <input
@@ -20,7 +20,13 @@
                                                 class="form-control"
                                                 id="exampleInputFirstName"
                                                 placeholder="Enter Full Name"
+                                                v-model="form.name"
                                             />
+                                            <small
+                                                class="text-danger"
+                                                v-if="errors.name"
+                                                >{{ errors.name[0] }}</small
+                                            >
                                         </div>
                                         <div class="form-group">
                                             <label>Email</label>
@@ -30,7 +36,13 @@
                                                 id="exampleInputEmail"
                                                 aria-describedby="emailHelp"
                                                 placeholder="Enter Email Address"
+                                                v-model="form.email"
                                             />
+                                            <small
+                                                class="text-danger"
+                                                v-if="errors.email"
+                                                >{{ errors.email[0] }}</small
+                                            >
                                         </div>
                                         <div class="form-group">
                                             <label>Password</label>
@@ -39,7 +51,13 @@
                                                 class="form-control"
                                                 id="exampleInputPassword"
                                                 placeholder="Password"
+                                                v-model="form.password"
                                             />
+                                            <small
+                                                class="text-danger"
+                                                v-if="errors.password"
+                                                >{{ errors.password[0] }}</small
+                                            >
                                         </div>
                                         <div class="form-group">
                                             <label>Repeat Password</label>
@@ -48,6 +66,9 @@
                                                 class="form-control"
                                                 id="exampleInputPasswordRepeat"
                                                 placeholder="Confirm Password"
+                                                v-model="
+                                                    form.password_confirmation
+                                                "
                                             />
                                         </div>
                                         <div class="form-group">
@@ -96,6 +117,38 @@
     </div>
 </template>
 <script>
-export default {};
+export default {
+    created() {
+        if (User.loggedIn()) {
+            this.$router.push({ name: "home" });
+        }
+    },
+    data() {
+        return {
+            form: {
+                name: null,
+                email: null,
+                password: null,
+                password_confirmation: null,
+            },
+            errors: {},
+        };
+    },
+    methods: {
+        signup() {
+            axios
+                .post(`/api/auth/signup`, this.form)
+                .then((response) => {
+                    User.responseAfterLogin(response);
+                    Toast.fire({
+                        icon: "success",
+                        title: "Signup in successfully",
+                    });
+                    this.$router.push({ name: "home" });
+                })
+                .catch((error) => (this.errors = error.response.data.errors));
+        },
+    },
+};
 </script>
 <style></style>
