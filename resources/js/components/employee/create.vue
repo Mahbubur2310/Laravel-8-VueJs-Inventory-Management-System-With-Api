@@ -241,11 +241,11 @@ export default {
                 Notification.img_validation();
             } else {
                 let reader = new FileReader();
-                reader.readAsDataURL(this.form.photo);
                 reader.onload = (event) => {
                     this.form.preview = event.target.result;
                     console.log(event.target.result);
                 };
+                reader.readAsDataURL(this.form.photo);
             }
         },
         employeeInsert() {

@@ -5937,12 +5937,13 @@ __webpack_require__.r(__webpack_exports__);
         Notification.img_validation();
       } else {
         var reader = new FileReader();
-        reader.readAsDataURL(this.form.photo);
 
         reader.onload = function (event) {
           _this.form.preview = event.target.result;
           console.log(event.target.result);
         };
+
+        reader.readAsDataURL(this.form.photo);
       }
     },
     employeeInsert: function employeeInsert() {
