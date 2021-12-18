@@ -5902,10 +5902,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   created: function created() {
     if (!User.loggedIn()) {
@@ -5923,6 +5919,7 @@ __webpack_require__.r(__webpack_exports__);
         salary: null,
         address: null,
         photo: null,
+        preview: null,
         nid: null,
         joining_date: null
       },
@@ -5933,19 +5930,19 @@ __webpack_require__.r(__webpack_exports__);
     onFileSelected: function onFileSelected(event) {
       var _this = this;
 
-      var file = event.target.files[0];
+      // let file = event.target.files[0];
+      this.form.photo = event.target.files[0];
 
-      if (file.size > 1048770) {
+      if (this.form.photo.size > 1048770) {
         Notification.img_validation();
       } else {
         var reader = new FileReader();
+        reader.readAsDataURL(this.form.photo);
 
         reader.onload = function (event) {
-          _this.form.photo = event.target.result;
+          _this.form.preview = event.target.result;
           console.log(event.target.result);
         };
-
-        reader.readAsDataURL(file);
       }
     },
     employeeInsert: function employeeInsert() {
@@ -5959,7 +5956,7 @@ __webpack_require__.r(__webpack_exports__);
         Notification.success();
       })["catch"](function (error) {
         return _this2.errors = error.response.data.errors;
-      }); // .catch(Notification.error());
+      });
     }
   }
 });
@@ -37304,16 +37301,6 @@ var render = function () {
                               on: { change: _vm.onFileSelected },
                             }),
                             _vm._v(" "),
-                            _vm.errors.photo
-                              ? _c("small", { staticClass: "text-danger" }, [
-                                  _vm._v(
-                                    "\n                                                    " +
-                                      _vm._s(_vm.errors.photo[0]) +
-                                      "\n                                                "
-                                  ),
-                                ])
-                              : _vm._e(),
-                            _vm._v(" "),
                             _c(
                               "label",
                               {
@@ -37324,12 +37311,17 @@ var render = function () {
                             ),
                           ]),
                           _vm._v(" "),
-                          _c("div", { staticClass: "col-md-6" }, [
-                            _c("img", {
-                              staticStyle: { height: "40px", width: "40px" },
-                              attrs: { src: _vm.form.photo },
-                            }),
-                          ]),
+                          _vm.form.preview
+                            ? _c("div", { staticClass: "col-md-6" }, [
+                                _c("img", {
+                                  staticStyle: {
+                                    height: "40px",
+                                    width: "40px",
+                                  },
+                                  attrs: { src: _vm.form.preview },
+                                }),
+                              ])
+                            : _vm._e(),
                         ]),
                       ]),
                       _vm._v(" "),

@@ -170,13 +170,6 @@
                                                         id="customFile"
                                                         @change="onFileSelected"
                                                     />
-
-                                                    <small
-                                                        class="text-danger"
-                                                        v-if="errors.photo"
-                                                    >
-                                                        {{ errors.photo[0] }}
-                                                    </small>
                                                     <label
                                                         class="custom-file-label"
                                                         for="customFile"
@@ -184,9 +177,12 @@
                                                     >
                                                 </div>
 
-                                                <div class="col-md-6">
+                                                <div
+                                                    class="col-md-6"
+                                                    v-if="form.preview"
+                                                >
                                                     <img
-                                                        :src="form.photo"
+                                                        :src="form.preview"
                                                         style="
                                                             height: 40px;
                                                             width: 40px;
@@ -230,6 +226,7 @@ export default {
                 salary: null,
                 address: null,
                 photo: null,
+                preview: null,
                 nid: null,
                 joining_date: null,
             },
@@ -238,27 +235,27 @@ export default {
     },
     methods: {
         onFileSelected(event) {
-            let file = event.target.files[0];
-            if (file.size > 1048770) {
+            // let file = event.target.files[0];
+            this.form.photo = event.target.files[0];
+            if (this.form.photo.size > 1048770) {
                 Notification.img_validation();
             } else {
                 let reader = new FileReader();
+                reader.readAsDataURL(this.form.photo);
                 reader.onload = (event) => {
-                    this.form.photo = event.target.result;
+                    this.form.preview = event.target.result;
                     console.log(event.target.result);
                 };
-                reader.readAsDataURL(file);
             }
         },
         employeeInsert() {
             axios
-                .post(`/api/employee`, this.form)
+                .post("/api/employee", this.form)
                 .then(() => {
                     this.$router.push({ name: "employee" });
                     Notification.success();
                 })
                 .catch((error) => (this.errors = error.response.data.errors));
-            // .catch(Notification.error());
         },
     },
 };

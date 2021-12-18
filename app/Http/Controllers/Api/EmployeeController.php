@@ -41,6 +41,7 @@ class EmployeeController extends Controller
             $upload_path = 'backend/employee/';
             $image_url = $upload_path.$image_name;
             $img->save($image_url);
+             
 
 
             $employee = new Employee();
@@ -51,7 +52,7 @@ class EmployeeController extends Controller
             $employee->salary = $request->salary;
             $employee->nid = $request->nid;
             $employee->joining_date = $request->joining_date;
-            $employee->photo = $image_url;
+            $employee->photo = $name;
             $employee->save();
         }else{
             $employee = new Employee();
