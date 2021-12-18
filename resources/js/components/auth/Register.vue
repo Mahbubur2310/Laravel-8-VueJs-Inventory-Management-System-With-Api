@@ -14,7 +14,7 @@
                                     </div>
                                     <form class="user" @submit.prevent="signup">
                                         <div class="form-group">
-                                            <label>First Name</label>
+                                            <label>Name</label>
                                             <input
                                                 type="text"
                                                 class="form-control"

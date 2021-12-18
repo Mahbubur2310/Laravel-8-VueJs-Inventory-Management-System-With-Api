@@ -11,6 +11,11 @@ import { routes } from "./routes";
 import User from "./Helpers/User";
 window.User = User;
 
+//Notification
+import Notification from "./Helpers/Notification";
+
+window.Notification = Notification;
+
 //Swwtalart 2 start
 import Swal from "sweetalert2";
 window.Swal = Swal;
