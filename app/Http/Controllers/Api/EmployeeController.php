@@ -52,7 +52,7 @@ class EmployeeController extends Controller
             $employee->salary = $request->salary;
             $employee->nid = $request->nid;
             $employee->joining_date = $request->joining_date;
-            $employee->photo = $name;
+            $employee->photo = $image_url;
             $employee->save();
         }else{
             $employee = new Employee();
