@@ -103,8 +103,15 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $employee = Employee::findOrfail($id);
+        $validateData = $request->validate([
+            'name' => 'required|max:255',
+            'email' => 'required|max:255|unique:employees,email,'.$employee->id,
+            'phone' => 'required|min:10|unique:employees,phone,'.$employee->id,
+            'nid' => 'required|unique:employees,nid,'.$employee->id,
+        ]);
+
         if ($request->newphoto) {
-            $employee = Employee::findOrfail($id);
             @unlink(public_path($employee->photo));
             $position = strpos($request->newphoto, ';');
             $sub = substr($request->newphoto, 0, $position);
@@ -129,7 +136,6 @@ class EmployeeController extends Controller
             $employee->photo = $image_url;
             $employee->save();
         }else{
-            $employee = Employee::findOrfail($id);
             $employee->name = $request->name;
             $employee->email = $request->email;
             $employee->phone = $request->phone;
