@@ -16,12 +16,12 @@
                                 <div class="login-form">
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">
-                                            Add Employee
+                                            Update Employee
                                         </h1>
                                     </div>
                                     <form
                                         class="user"
-                                        @submit.prevent="employeeInsert"
+                                        @submit.prevent="updateEmployee"
                                         enctype="multipart/form-data"
                                     >
                                         <div class="form-group">
@@ -179,10 +179,22 @@
 
                                                 <div
                                                     class="col-md-6"
-                                                    v-if="form.preview"
+                                                    v-if="newpreview"
                                                 >
                                                     <img
-                                                        :src="form.preview"
+                                                        :src="newpreview"
+                                                        style="
+                                                            height: 40px;
+                                                            width: 40px;
+                                                        "
+                                                    />
+                                                </div>
+                                                <div class="col-md-6" v-else>
+                                                    <img
+                                                        :src="
+                                                            path +
+                                                            `${form.photo}`
+                                                        "
                                                         style="
                                                             height: 40px;
                                                             width: 40px;
@@ -220,18 +232,26 @@ export default {
     data() {
         return {
             form: {
-                name: null,
-                email: null,
-                phone: null,
-                salary: null,
-                address: null,
-                photo: null,
-                preview: null,
-                nid: null,
-                joining_date: null,
+                name: "",
+                email: "",
+                phone: "",
+                salary: "",
+                address: "",
+                newphoto: "",
+                nid: "",
+                joining_date: "",
             },
             errors: {},
+            path: "http://127.0.0.1:8000/",
+            newpreview: "",
         };
+    },
+    created() {
+        let id = this.$route.params.id;
+        axios
+            .get("/api/employee/" + id)
+            .then(({ data }) => (this.form = data))
+            .catch(console.log("error"));
     },
     methods: {
         onFileSelected(event) {
@@ -241,16 +261,16 @@ export default {
             } else {
                 let reader = new FileReader();
                 reader.onload = (event) => {
-                    this.form.preview = event.target.result;
-                    this.form.photo = event.target.result;
-                    console.log(event.target.result);
+                    this.newpreview = event.target.result;
+                    this.form.newphoto = event.target.result;
                 };
                 reader.readAsDataURL(file);
             }
         },
-        employeeInsert() {
+        updateEmployee() {
+            let id = this.$route.params.id;
             axios
-                .post("/api/employee", this.form)
+                .patch("/api/employee/" + id, this.form)
                 .then(() => {
                     this.$router.push({ name: "employee" });
                     Notification.success();
