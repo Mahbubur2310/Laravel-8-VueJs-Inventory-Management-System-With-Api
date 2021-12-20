@@ -242,7 +242,7 @@ export default {
                 joining_date: "",
             },
             errors: {},
-            path: "http://127.0.0.1:8000/",
+            path: window.baseurl,
             newpreview: "",
         };
     },

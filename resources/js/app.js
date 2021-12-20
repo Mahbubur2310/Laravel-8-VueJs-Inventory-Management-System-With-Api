@@ -1,4 +1,5 @@
 require("./bootstrap");
+window.baseurl = "http://localhost:8000/";
 
 import Vue from "vue";
 import VueRouter from "vue-router";

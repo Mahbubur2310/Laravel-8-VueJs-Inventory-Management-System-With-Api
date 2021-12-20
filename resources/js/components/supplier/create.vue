@@ -2,8 +2,8 @@
     <div>
         <div class="row">
             <div class="col-md-3">
-                <router-link to="/employee" class="btn btn-primary"
-                    >All Employee</router-link
+                <router-link to="/supplier" class="btn btn-primary"
+                    >All Supplier</router-link
                 >
             </div>
         </div>
@@ -16,12 +16,12 @@
                                 <div class="login-form">
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">
-                                            Add Employee
+                                            Add Supplier
                                         </h1>
                                     </div>
                                     <form
                                         class="user"
-                                        @submit.prevent="employeeInsert"
+                                        @submit.prevent="supplierInsert"
                                         enctype="multipart/form-data"
                                     >
                                         <div class="form-group">
@@ -82,71 +82,8 @@
                                                     <input
                                                         type="text"
                                                         class="form-control"
-                                                        id="exampleInputSalary"
-                                                        placeholder="Enter Your Salary"
-                                                        v-model="form.salary"
-                                                    />
-                                                    <small
-                                                        class="text-danger"
-                                                        v-if="errors.salary"
-                                                    >
-                                                        {{ errors.salary[0] }}
-                                                    </small>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <div class="form-row">
-                                                <div class="col-md-6">
-                                                    <input
-                                                        type="date"
-                                                        class="form-control"
-                                                        id="exampleInputJoiningDate"
-                                                        placeholder="Enter Your Joining Date"
-                                                        v-model="
-                                                            form.joining_date
-                                                        "
-                                                    />
-                                                    <small
-                                                        class="text-danger"
-                                                        v-if="
-                                                            errors.joining_date
-                                                        "
-                                                    >
-                                                        {{
-                                                            errors
-                                                                .joining_date[0]
-                                                        }}
-                                                    </small>
-                                                </div>
-
-                                                <div class="col-md-6">
-                                                    <input
-                                                        type="text"
-                                                        class="form-control"
-                                                        id="exampleInputNID"
-                                                        placeholder="Enter Your NID"
-                                                        v-model="form.nid"
-                                                    />
-                                                    <small
-                                                        class="text-danger"
-                                                        v-if="errors.nid"
-                                                    >
-                                                        {{ errors.nid[0] }}
-                                                    </small>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <div class="form-row">
-                                                <div class="col-md-6">
-                                                    <input
-                                                        type="text"
-                                                        class="form-control"
-                                                        id="exampleInputNumber"
-                                                        placeholder="Enter Your phone Number"
+                                                        id="exampleInputPhone"
+                                                        placeholder="Enter Your Phone"
                                                         v-model="form.phone"
                                                     />
                                                     <small
@@ -154,6 +91,26 @@
                                                         v-if="errors.phone"
                                                     >
                                                         {{ errors.phone[0] }}
+                                                    </small>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="form-row">
+                                                <div class="col-md-6">
+                                                    <input
+                                                        type="text"
+                                                        class="form-control"
+                                                        id="exampleInputShopName"
+                                                        placeholder="Enter Your Shop Name"
+                                                        v-model="form.shopname"
+                                                    />
+                                                    <small
+                                                        class="text-danger"
+                                                        v-if="errors.shopname"
+                                                    >
+                                                        {{ errors.shopname[0] }}
                                                     </small>
                                                 </div>
                                                 <div class="col-md-5 col-sm-10">
@@ -216,12 +173,10 @@ export default {
                 name: null,
                 email: null,
                 phone: null,
-                salary: null,
                 address: null,
                 photo: null,
                 preview: null,
-                nid: null,
-                joining_date: null,
+                shopname: null,
             },
             errors: {},
         };
@@ -241,11 +196,11 @@ export default {
                 reader.readAsDataURL(file);
             }
         },
-        employeeInsert() {
+        supplierInsert() {
             axios
-                .post("/api/employee", this.form)
+                .post("/api/supplier", this.form)
                 .then(() => {
-                    this.$router.push({ name: "employee" });
+                    this.$router.push({ name: "supplier" });
                     Notification.success();
                 })
                 .catch((error) => (this.errors = error.response.data.errors));
