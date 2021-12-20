@@ -10,6 +10,10 @@ let editemployee = require("./components/employee/edit.vue").default;
 let storeSupplier = require("./components/supplier/create.vue").default;
 let supplier = require("./components/supplier/index.vue").default;
 let editsupplier = require("./components/supplier/edit.vue").default;
+// Category
+let storeCategory = require("./components/category/create.vue").default;
+let category = require("./components/category/index.vue").default;
+let editcategory = require("./components/category/edit.vue").default;
 
 //End Authentication
 let home = require("./components/home.vue").default;
@@ -53,5 +57,22 @@ export const routes = [
         path: "/edit-supplier/:id",
         component: editsupplier,
         name: "edit-supplier",
+    },
+
+    //Category Route
+    {
+        path: "/store-category",
+        component: storeCategory,
+        name: "store-category",
+    },
+    {
+        path: "/category",
+        component: category,
+        name: "category",
+    },
+    {
+        path: "/edit-category/:id",
+        component: editcategory,
+        name: "edit-category",
     },
 ];
