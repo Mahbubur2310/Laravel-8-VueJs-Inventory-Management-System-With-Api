@@ -45,7 +45,7 @@
                                     :key="supplier.id"
                                 >
                                     <td>{{ index + 1 }}</td>
-                                    <td>{{ supplier.name }}</td>
+                                    <td>{{ supplier.supplier_name }}</td>
                                     <td>{{ supplier.email }}</td>
                                     <td>
                                         <img

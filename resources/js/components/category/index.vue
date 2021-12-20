@@ -41,7 +41,7 @@
                                     :key="category.id"
                                 >
                                     <td>{{ index + 1 }}</td>
-                                    <td>{{ category.name }}</td>
+                                    <td>{{ category.category_name }}</td>
                                     <td>
                                         <router-link
                                             :to="{
@@ -84,7 +84,7 @@ export default {
     computed: {
         filtersearch() {
             return this.categories.filter((category) => {
-                return category.name.match(this.searchTerm);
+                return category.category_name.match(this.searchTerm);
             });
         },
     },

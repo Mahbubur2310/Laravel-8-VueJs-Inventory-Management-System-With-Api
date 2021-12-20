@@ -29,7 +29,7 @@ class SupplierController extends Controller
     public function store(Request $request)
     {
         $validateData = $request->validate([
-            'name' => 'required|max:255',
+            'supplier_name' => 'required|max:255',
             'email' => 'required|unique:suppliers|max:255',
             'phone' => 'required|unique:suppliers|min:10',
             'shopname' => 'required|unique:suppliers',
@@ -49,7 +49,7 @@ class SupplierController extends Controller
 
 
             $supplier = new supplier();
-            $supplier->name = $request->name;
+            $supplier->supplier_name = $request->supplier_name;
             $supplier->email = $request->email;
             $supplier->phone = $request->phone;
             $supplier->address = $request->address;
@@ -58,7 +58,7 @@ class SupplierController extends Controller
             $supplier->save();
         }else{
             $supplier = new supplier();
-            $supplier->name = $request->name;
+            $supplier->supplier_name = $request->supplier_name;
             $supplier->email = $request->email;
             $supplier->phone = $request->phone;
             $supplier->address = $request->address;
@@ -92,7 +92,7 @@ class SupplierController extends Controller
     {
         $supplier = supplier::findOrfail($id);
         $validateData = $request->validate([
-            'name' => 'required|max:255',
+            'supplier_name' => 'required|max:255',
             'email' => 'required|max:255|unique:suppliers,email,'.$supplier->id,
             'phone' => 'required|min:10|unique:suppliers,phone,'.$supplier->id,
             'shopname' => 'required|unique:suppliers,shopname,'.$supplier->id,
@@ -113,7 +113,7 @@ class SupplierController extends Controller
 
 
             
-            $supplier->name = $request->name;
+            $supplier->supplier_name = $request->supplier_name;
             $supplier->email = $request->email;
             $supplier->phone = $request->phone;
             $supplier->address = $request->address;
@@ -121,7 +121,7 @@ class SupplierController extends Controller
             $supplier->photo = $image_url;
             $supplier->save();
         }else{
-            $supplier->name = $request->name;
+            $supplier->supplier_name = $request->supplier_name;
             $supplier->email = $request->email;
             $supplier->phone = $request->phone;
             $supplier->address = $request->address;

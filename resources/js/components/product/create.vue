@@ -101,7 +101,9 @@
                                                             v-for="category in categories"
                                                             :key="category.id"
                                                         >
-                                                            {{ category.name }}
+                                                            {{
+                                                                category.category_name
+                                                            }}
                                                         </option>
                                                     </select>
                                                 </div>
@@ -123,7 +125,9 @@
                                                             v-for="supplier in suppliers"
                                                             :key="supplier.id"
                                                         >
-                                                            {{ supplier.name }}
+                                                            {{
+                                                                supplier.supplier_name
+                                                            }}
                                                         </option>
                                                     </select>
                                                 </div>

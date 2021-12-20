@@ -29,11 +29,11 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $validateData = $request->validate([
-            'name' => 'required|unique:categories|max:255'
+            'category_name' => 'required|unique:categories|max:255'
         ]);
 
         $category = new Category();
-        $category->name = $request->name;
+        $category->category_name = $request->category_name;
         $category->save();
     }
 
@@ -61,9 +61,9 @@ class CategoryController extends Controller
     {
         $category = Category::findOrfail($id);
         $validateData = $request->validate([
-            'name' => 'required|max:255|unique:categories,name,'.$category->id,
+            'category_name' => 'required|max:255|unique:categories,category_name,'.$category->id,
         ]);
-        $category->name = $request->name;
+        $category->category_name = $request->category_name;
         $category->save();
     }
 
