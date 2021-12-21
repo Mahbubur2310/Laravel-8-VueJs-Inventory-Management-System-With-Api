@@ -93,6 +93,20 @@
             </div>
           </li>
 
+          <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseExpense" aria-expanded="true"
+              aria-controls="collapseExpense">
+              <i class="far fa-address-book"></i>
+              <span>Expense</span>
+            </a>
+            <div id="collapseExpense" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
+              <div class="bg-white py-2 collapse-inner rounded">
+                <router-link class="collapse-item" to="/store-expense">Add Expense</router-link>
+                <router-link class="collapse-item" to="/expense">All Expense</router-link>
+              </div>
+            </div>
+          </li>
+
 
 
 
