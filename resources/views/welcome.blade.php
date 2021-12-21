@@ -107,17 +107,36 @@
             </div>
           </li>
 
+          <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSalary" aria-expanded="true"
+              aria-controls="collapseSalary">
+              <i class="far fa-address-book"></i>
+              <span>Salary</span>
+            </a>
+            <div id="collapseSalary" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
+              <div class="bg-white py-2 collapse-inner rounded">
+                <router-link class="collapse-item" to="/given-salary">Add Salary</router-link>
+                <router-link class="collapse-item" to="/salary">All Salary</router-link>
+              </div>
+            </div>
+          </li>
+
 
 
 
 
           <li class="nav-item">
-            <a class="nav-link" href="ui-colors.html">
-              <i class="fas fa-fw fa-palette"></i>
-              <span>UI Colors</span>
-            </a>
+            <router-link class="nav-link" to="/stock">
+              {{-- <i class="fas fa-fw fa-palette"></i> --}}
+              <i class="fas fa-boxes"></i>
+              <span>Stock</span>
+            </router-link>
           </li>
+
+
           <hr class="sidebar-divider">
+
+
           <div class="sidebar-heading">
             Examples
           </div>

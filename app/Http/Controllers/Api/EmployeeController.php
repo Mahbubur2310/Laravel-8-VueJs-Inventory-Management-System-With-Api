@@ -93,7 +93,7 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $employee = Employee::findOrfail($id);
+        $employee = Employee::findOrFail($id);
         $validateData = $request->validate([
             'name' => 'required|max:255',
             'email' => 'required|max:255|unique:employees,email,'.$employee->id,

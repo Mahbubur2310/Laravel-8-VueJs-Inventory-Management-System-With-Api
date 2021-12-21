@@ -74,7 +74,7 @@ class ExpenseController extends Controller
             'expense_date' => 'required',
         ]);
         
-        $expense = Expense::findOrfail($id);
+        $expense = Expense::findOrFail($id);
         $expense->details = $request->details;
         $expense->amount = $request->amount;
         // $expense->expense_date = date('y-m-d'); if auto generate

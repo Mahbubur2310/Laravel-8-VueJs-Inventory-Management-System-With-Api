@@ -106,6 +106,17 @@
                                                             }}
                                                         </option>
                                                     </select>
+                                                    <small
+                                                        class="text-danger"
+                                                        v-if="
+                                                            errors.category_id
+                                                        "
+                                                    >
+                                                        {{
+                                                            errors
+                                                                .category_id[0]
+                                                        }}
+                                                    </small>
                                                 </div>
 
                                                 <div class="col-md-6">
@@ -130,6 +141,17 @@
                                                             }}
                                                         </option>
                                                     </select>
+                                                    <small
+                                                        class="text-danger"
+                                                        v-if="
+                                                            errors.supplier_id
+                                                        "
+                                                    >
+                                                        {{
+                                                            errors
+                                                                .supplier_id[0]
+                                                        }}
+                                                    </small>
                                                 </div>
                                             </div>
                                         </div>

@@ -109,7 +109,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $product = Product::findOrfail($id);
+        $product = Product::findOrFail($id);
         $validateData = $request->validate([
             'product_name' => 'required|max:255',
             'product_code' => 'required|unique:products,product_code,'.$product->id,
@@ -178,5 +178,18 @@ class ProductController extends Controller
         }else{
             $product->delete();
         }
+    }
+
+    public function stockUpdate(Request $request, $id)
+    {
+        $validateData = $request->validate([
+            'quantity' => 'required',
+        ]);
+
+        $product = Product::findOrFail($id);
+        $product->quantity = $request->quantity;
+        $product->save();
+
+        
     }
 }

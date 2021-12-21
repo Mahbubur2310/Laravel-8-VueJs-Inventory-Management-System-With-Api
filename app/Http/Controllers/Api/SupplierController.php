@@ -90,7 +90,7 @@ class SupplierController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $supplier = supplier::findOrfail($id);
+        $supplier = supplier::findOrFail($id);
         $validateData = $request->validate([
             'supplier_name' => 'required|max:255',
             'email' => 'required|max:255|unique:suppliers,email,'.$supplier->id,

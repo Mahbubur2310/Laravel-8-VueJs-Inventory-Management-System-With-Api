@@ -22,6 +22,15 @@ let editproduct = require("./components/product/edit.vue").default;
 let storeExpense = require("./components/expense/create.vue").default;
 let expense = require("./components/expense/expense.vue").default;
 let editexpense = require("./components/expense/edit.vue").default;
+// salary
+let givenSalary = require("./components/salary/all_employee.vue").default;
+let paysalary = require("./components/salary/create.vue").default;
+let allsalary = require("./components/salary/index.vue").default;
+let viewsalary = require("./components/salary/view.vue").default;
+let editsalary = require("./components/salary/edit.vue").default;
+//stock
+let stock = require("./components/product/stock.vue").default;
+let editstock = require("./components/product/editstock.vue").default;
 
 //End Authentication
 let home = require("./components/home.vue").default;
@@ -116,5 +125,43 @@ export const routes = [
         path: "/edit-expense/:id",
         component: editexpense,
         name: "edit-expense",
+    },
+    //salary Route
+    {
+        path: "/given-salary",
+        component: givenSalary,
+        name: "given-salary",
+    },
+    {
+        path: "/pay-salary/:id",
+        component: paysalary,
+        name: "pay-salary",
+    },
+    {
+        path: "/salary",
+        component: allsalary,
+        name: "salary",
+    },
+    {
+        path: "/view-salary/:id",
+        component: viewsalary,
+        name: "view-salary",
+    },
+    {
+        path: "/edit-salary/:id",
+        component: editsalary,
+        name: "edit-salary",
+    },
+
+    //Stock Route
+    {
+        path: "/stock",
+        component: stock,
+        name: "stock",
+    },
+    {
+        path: "/edit-stock/:id",
+        component: editstock,
+        name: "edit-stock",
     },
 ];
