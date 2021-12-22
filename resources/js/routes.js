@@ -44,6 +44,9 @@ let editsalary = require("./components/salary/edit.vue").default;
 let stock = require("./components/product/stock.vue").default;
 let editstock = require("./components/product/editstock.vue").default;
 
+//Pos
+let pos = require("./components/pos/pointOfSale.vue").default;
+
 //End Authentication
 let home = require("./components/home.vue").default;
 
@@ -192,5 +195,12 @@ export const routes = [
         path: "/edit-stock/:id",
         component: editstock,
         name: "edit-stock",
+    },
+
+    //Pos Route
+    {
+        path: "/pos",
+        component: pos,
+        name: "pos",
     },
 ];

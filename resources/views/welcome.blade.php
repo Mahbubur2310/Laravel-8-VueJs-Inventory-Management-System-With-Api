@@ -14,6 +14,7 @@
   <link href="{{asset('backend/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
   <link href="{{asset('backend/css/ruang-admin.min.css')}}" rel="stylesheet">
 
+
 </head>
 
 <body id="page-top">
@@ -36,8 +37,8 @@
               <span>Dashboard</span></router-link>
           </li>
           <li class="nav-item bg-info">
-            <router-link class="nav-link" to="/home">
-              <i class="fas fa-fw fa-tachometer-alt"></i>
+            <router-link class="nav-link" to="/pos">
+              <i class="fas fa-cart-plus"></i>
               <span>POS</span></router-link>
           </li>
           <hr class="sidebar-divider">
