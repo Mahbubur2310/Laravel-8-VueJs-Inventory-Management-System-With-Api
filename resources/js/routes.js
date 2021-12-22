@@ -2,32 +2,44 @@ let login = require("./components/auth/Login.vue").default;
 let register = require("./components/auth/Register.vue").default;
 let forget = require("./components/auth/Forget.vue").default;
 let logout = require("./components/auth/Logout.vue").default;
+
 // Employee
 let storeEmployee = require("./components/employee/create.vue").default;
 let employee = require("./components/employee/index.vue").default;
 let editemployee = require("./components/employee/edit.vue").default;
+
+// Customer
+let storeCustomer = require("./components/customer/create.vue").default;
+let customer = require("./components/customer/index.vue").default;
+let editcustomer = require("./components/customer/edit.vue").default;
+
 // Supplier
 let storeSupplier = require("./components/supplier/create.vue").default;
 let supplier = require("./components/supplier/index.vue").default;
 let editsupplier = require("./components/supplier/edit.vue").default;
+
 // Category
 let storeCategory = require("./components/category/create.vue").default;
 let category = require("./components/category/index.vue").default;
 let editcategory = require("./components/category/edit.vue").default;
+
 // Product
 let storeProduct = require("./components/product/create.vue").default;
 let product = require("./components/product/index.vue").default;
 let editproduct = require("./components/product/edit.vue").default;
+
 // Expense
 let storeExpense = require("./components/expense/create.vue").default;
 let expense = require("./components/expense/expense.vue").default;
 let editexpense = require("./components/expense/edit.vue").default;
+
 // salary
 let givenSalary = require("./components/salary/all_employee.vue").default;
 let paysalary = require("./components/salary/create.vue").default;
 let allsalary = require("./components/salary/index.vue").default;
 let viewsalary = require("./components/salary/view.vue").default;
 let editsalary = require("./components/salary/edit.vue").default;
+
 //stock
 let stock = require("./components/product/stock.vue").default;
 let editstock = require("./components/product/editstock.vue").default;
@@ -57,6 +69,23 @@ export const routes = [
         path: "/edit-employee/:id",
         component: editemployee,
         name: "edit-employee",
+    },
+
+    //Customer Route
+    {
+        path: "/store-customer",
+        component: storeCustomer,
+        name: "store-customer",
+    },
+    {
+        path: "/customer",
+        component: customer,
+        name: "customer",
+    },
+    {
+        path: "/edit-customer/:id",
+        component: editcustomer,
+        name: "edit-customer",
     },
 
     //Supplier Route
