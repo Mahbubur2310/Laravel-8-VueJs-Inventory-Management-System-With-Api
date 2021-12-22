@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\CartController;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\CustomerController;
 use App\Http\Controllers\Api\EmployeeController;
@@ -8,6 +9,7 @@ use App\Http\Controllers\Api\PosController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\SalaryController;
 use App\Http\Controllers\Api\SupplierController;
+use App\Http\Controllers\Api\VatController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
@@ -47,3 +49,12 @@ Route::get('/salary/view/{id}',[SalaryController::class,'viewSalary']);
 Route::get('/edit/salary/{id}',[SalaryController::class,'editSalary']);
 Route::post('/salary/update/{id}',[SalaryController::class,'updateSalary']);
 Route::get('/getting/product/{id}',[PosController::class,'getProduct']);
+
+//Cart
+Route::get('/addToCart/{id}',[CartController::class,'addToCart']);
+Route::get('/cart/product',[CartController::class,'cartProduct']);
+Route::get('/remove/Cart/{id}',[CartController::class,'removeCart']);
+Route::get('/increment/{id}',[CartController::class,'increment']);
+Route::get('/deccrement/{id}',[CartController::class,'deccrement']);
+//Vat
+Route::get('/vats',[VatController::class,'vats']);
