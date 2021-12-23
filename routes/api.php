@@ -62,3 +62,5 @@ Route::get('/vats',[VatController::class,'vats']);
 Route::post('/orderdone',[PosController::class,'orderDone']);
 //Order
 Route::get('/orders',[OrderController::class,'todayOrder']);
+Route::get('/order/details/{id}',[OrderController::class,'orderCustomerDetails']);
+Route::get('/order/orderDetails/{id}',[OrderController::class,'allOrderDetails']);

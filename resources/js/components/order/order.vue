@@ -40,9 +40,19 @@
                                     <td>
                                         {{ order.name }}
                                     </td>
-                                    <td>{{ order.total }}</td>
-                                    <td>{{ order.pay }}</td>
-                                    <td>{{ order.due }}</td>
+                                    <td>{{ order.total }} TK</td>
+                                    <td>{{ order.pay }} TK</td>
+                                    <td>
+                                        <span
+                                            class="badge badge-danger"
+                                            v-if="order.due > 0"
+                                            >{{ order.due }} TK</span
+                                        >
+
+                                        <span class="badge badge-success" v-else
+                                            >0 TK</span
+                                        >
+                                    </td>
                                     <td>{{ order.payby }}</td>
                                     <td>
                                         <router-link
