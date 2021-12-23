@@ -2,6 +2,8 @@ let login = require("./components/auth/Login.vue").default;
 let register = require("./components/auth/Register.vue").default;
 let forget = require("./components/auth/Forget.vue").default;
 let logout = require("./components/auth/Logout.vue").default;
+//End Authentication
+let home = require("./components/home.vue").default;
 
 // Employee
 let storeEmployee = require("./components/employee/create.vue").default;
@@ -46,9 +48,8 @@ let editstock = require("./components/product/editstock.vue").default;
 
 //Pos
 let pos = require("./components/pos/pointOfSale.vue").default;
-
-//End Authentication
-let home = require("./components/home.vue").default;
+//Order
+let order = require("./components/order/order.vue").default;
 
 export const routes = [
     { path: "/", component: login, name: "/" },
@@ -202,5 +203,11 @@ export const routes = [
         path: "/pos",
         component: pos,
         name: "pos",
+    },
+    //Order Route
+    {
+        path: "/order",
+        component: order,
+        name: "order",
     },
 ];

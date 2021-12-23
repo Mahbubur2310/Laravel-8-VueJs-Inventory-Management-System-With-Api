@@ -122,13 +122,14 @@
                             </ul>
                             <br />
 
-                            <form action="">
+                            <form @submit.prevent="orderDone">
                                 <label for="">Customer Name</label>
                                 <select
                                     v-model="customer_id"
                                     class="form-control"
                                 >
                                     <option
+                                        :value="customer.id"
                                         v-for="customer in customers"
                                         :key="customer.id"
                                     >
@@ -150,10 +151,7 @@
                                     v-model="due"
                                 />
                                 <label for="">Pay By</label>
-                                <select
-                                    v-model="customer_id"
-                                    class="form-control"
-                                >
+                                <select v-model="payby" class="form-control">
                                     <option value="HandCash">Hand Cash</option>
                                     <option value="Cheaque">Cheaque</option>
                                     <option value="GiftCard">Gift Card</option>
@@ -380,6 +378,11 @@ export default {
     },
     data() {
         return {
+            customer_id: "",
+            pay: "",
+            due: "",
+            payby: "",
+
             products: [],
             categories: "",
             getproducts: [],
@@ -462,6 +465,31 @@ export default {
                 })
                 .catch();
         },
+        vat() {
+            axios
+                .get("/api/vats/")
+                .then(({ data }) => (this.vats = data))
+                .catch(console.log("error"));
+        },
+
+        orderDone() {
+            // alert("done");
+            let total = (this.subTotal * this.vats.vat) / 100 + this.subTotal;
+            var data = {
+                qty: this.qty,
+                subTotal: this.subTotal,
+                customer_id: this.customer_id,
+                payby: this.payby,
+                due: this.due,
+                pay: this.pay,
+                vat: this.vats.vat,
+                total: total,
+            };
+            axios.post("/api/orderdone", data).then(() => {
+                Notification.success();
+                this.$router.push({ name: "home" });
+            });
+        },
         //End Add to cart
         allProduct() {
             axios
@@ -485,12 +513,6 @@ export default {
             axios
                 .get("/api/customer/")
                 .then(({ data }) => (this.customers = data))
-                .catch(console.log("error"));
-        },
-        vat() {
-            axios
-                .get("/api/vats/")
-                .then(({ data }) => (this.vats = data))
                 .catch(console.log("error"));
         },
     },

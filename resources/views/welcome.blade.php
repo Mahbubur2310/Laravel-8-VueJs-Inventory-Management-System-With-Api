@@ -46,6 +46,19 @@
             Features
           </div>
           <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOrders" aria-expanded="true"
+              aria-controls="collapseOrders">
+              <i class="fas fa-gifts"></i>
+              <span>Orders</span>
+            </a>
+            <div id="collapseOrders" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
+              <div class="bg-white py-2 collapse-inner rounded">
+                <router-link class="collapse-item" to="/order">Today Orders</router-link>
+                <router-link class="collapse-item" to="/">Search</router-link>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap"
               aria-expanded="true" aria-controls="collapseBootstrap">
               <i class="fas fa-user-tie"></i>
