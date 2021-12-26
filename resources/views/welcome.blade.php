@@ -54,7 +54,7 @@
             <div id="collapseOrders" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
               <div class="bg-white py-2 collapse-inner rounded">
                 <router-link class="collapse-item" to="/order">Today Orders</router-link>
-                <router-link class="collapse-item" to="/">Search</router-link>
+                <router-link class="collapse-item" to="/searchorder">Search</router-link>
               </div>
             </div>
           </li>
