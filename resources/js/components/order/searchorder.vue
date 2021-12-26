@@ -62,6 +62,84 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-lg-12 mb-4">
+                <!-- Simple Tables -->
+                <div class="card">
+                    <div
+                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between"
+                    >
+                        <h6 class="m-0 font-weight-bold text-primary">
+                            Order List
+                        </h6>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table align-items-center table-flush">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th>SL</th>
+                                    <th>C.Name</th>
+                                    <th>Qty</th>
+                                    <th>Sub Total</th>
+                                    <th>Vat</th>
+                                    <th>Total</th>
+                                    <th>Pay</th>
+                                    <th>Due</th>
+                                    <th>Payby</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr
+                                    v-for="(order, index) in orders"
+                                    :key="order.id"
+                                >
+                                    <td>
+                                        {{ index + 1 }}
+                                    </td>
+                                    <td>
+                                        {{ order.name }}
+                                    </td>
+                                    <td>
+                                        {{ order.qty }}
+                                    </td>
+                                    <td>
+                                        {{ order.sub_total }}
+                                        TK
+                                    </td>
+                                    <td>
+                                        {{ order.vat }}
+                                        %
+                                    </td>
+
+                                    <td>
+                                        {{ order.total }}
+                                        TK
+                                    </td>
+                                    <td>
+                                        {{ order.pay }}
+                                        TK
+                                    </td>
+                                    <td>
+                                        <span
+                                            class="badge badge-danger"
+                                            v-if="order.due > 0"
+                                            >{{ order.due }} TK</span
+                                        >
+
+                                        <span class="badge badge-success" v-else
+                                            >0 TK</span
+                                        >
+                                    </td>
+                                    <td>
+                                        {{ order.payby }}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 <script>

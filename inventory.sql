@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 23, 2021 at 02:42 PM
+-- Generation Time: Dec 26, 2021 at 12:45 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.13
 
@@ -121,7 +121,7 @@ CREATE TABLE `expenses` (
 --
 
 INSERT INTO `expenses` (`id`, `details`, `amount`, `expense_date`, `created_at`, `updated_at`) VALUES
-(1, 'Current Bill', '500', '2021-12-21', '2021-12-20 23:58:41', '2021-12-20 23:58:41'),
+(1, 'Current Bill', '500', '2021-12-26', '2021-12-20 23:58:41', '2021-12-20 23:58:41'),
 (3, 'Computer Bill', '600', '2021-12-20', '2021-12-21 01:09:09', '2021-12-21 01:33:13');
 
 -- --------------------------------------------------------
@@ -229,7 +229,8 @@ INSERT INTO `orders` (`id`, `customer_id`, `qty`, `sub_total`, `vat`, `total`, `
 (12, 1, '4', '1400', '5', '1470', '1400', '70', 'HandCash', '23/12/2021', 'December', '2021', '2021-12-23 01:11:59', '2021-12-23 01:11:59'),
 (13, 1, '2', '700', '5', '735', '700', '35', 'HandCash', '23/12/2021', 'December', '2021', '2021-12-23 01:17:39', '2021-12-23 01:17:39'),
 (14, 1, '2', '700', '5', '735', '735', '0', 'HandCash', '23/12/2021', 'December', '2021', '2021-12-23 01:23:52', '2021-12-23 01:23:52'),
-(18, 3, '4', '1400', '5', '1470', '1400', '70', 'Cheaque', '23/12/2021', 'December', '2021', '2021-12-23 03:36:42', '2021-12-23 03:36:42');
+(18, 3, '4', '1400', '5', '1470', '1400', '70', 'Cheaque', '23/12/2021', 'December', '2021', '2021-12-23 03:36:42', '2021-12-23 03:36:42'),
+(19, 3, '1', '350', '5', '367.5', '350', '18', 'HandCash', '26/12/2021', 'December', '2021', '2021-12-26 05:05:54', '2021-12-26 05:05:54');
 
 -- --------------------------------------------------------
 
@@ -258,7 +259,8 @@ INSERT INTO `order_details` (`id`, `order_id`, `product_id`, `pro_quantity`, `pr
 (5, 14, 9, '2', '350', '700', '2021-12-23 01:23:52', '2021-12-23 01:23:52'),
 (11, 18, 5, '1', '350', '350', '2021-12-23 03:36:42', '2021-12-23 03:36:42'),
 (12, 18, 6, '1', '350', '350', '2021-12-23 03:36:42', '2021-12-23 03:36:42'),
-(13, 18, 7, '2', '350', '700', '2021-12-23 03:36:42', '2021-12-23 03:36:42');
+(13, 18, 7, '2', '350', '700', '2021-12-23 03:36:42', '2021-12-23 03:36:42'),
+(14, 19, 11, '1', '350', '350', '2021-12-26 05:05:54', '2021-12-26 05:05:54');
 
 -- --------------------------------------------------------
 
@@ -342,7 +344,7 @@ INSERT INTO `products` (`id`, `category_id`, `product_name`, `product_code`, `ro
 (8, 3, 'Product 6', 'P1006', 'Root', '300', '350', 3, '2021-12-22', 'backend/products/1640158396.jpeg', '20', '2021-12-22 01:33:16', '2021-12-22 01:33:16'),
 (9, 2, 'Product 7', 'P1007', 'Root', '300', '350', 3, '2021-12-22', 'backend/products/1640158426.jpeg', '18', '2021-12-22 01:33:46', '2021-12-23 01:23:52'),
 (10, 3, 'Product 8', 'P1008', 'Root', '300', '350', 3, '2021-12-22', 'backend/products/1640158474.jpeg', '18', '2021-12-22 01:34:35', '2021-12-23 01:17:39'),
-(11, 5, 'Product 9', 'P1009', 'Root', '300', '350', 3, '2021-12-22', 'backend/products/1640158509.jpeg', '16', '2021-12-22 01:35:09', '2021-12-23 01:11:59');
+(11, 5, 'Product 9', 'P1009', 'Root', '300', '350', 3, '2021-12-22', 'backend/products/1640158509.jpeg', '15', '2021-12-22 01:35:09', '2021-12-26 05:05:54');
 
 -- --------------------------------------------------------
 
@@ -583,13 +585,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -601,7 +603,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `pos`
 --
 ALTER TABLE `pos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT for table `products`

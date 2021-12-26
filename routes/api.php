@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\CustomerController;
 use App\Http\Controllers\Api\EmployeeController;
 use App\Http\Controllers\Api\ExpenseController;
+use App\Http\Controllers\Api\HomeController;
 use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\PosController;
 use App\Http\Controllers\Api\ProductController;
@@ -65,3 +66,10 @@ Route::get('/orders',[OrderController::class,'todayOrder']);
 Route::get('/order/details/{id}',[OrderController::class,'orderCustomerDetails']);
 Route::get('/order/orderDetails/{id}',[OrderController::class,'allOrderDetails']);
 Route::post('/search/order',[OrderController::class,'searchOrderByDate']);
+
+//Dashbord Route
+Route::get('/todaySell',[HomeController::class,'todaySell']);
+Route::get('/todayIncome',[HomeController::class,'todayIncome']);
+Route::get('/todayDue',[HomeController::class,'todayDue']);
+Route::get('/todayExpense',[HomeController::class,'todayExpense']);
+Route::get('/stockOut',[HomeController::class,'stockOut']);
