@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller;
 use App\Models\Customer;
 use Illuminate\Http\Request;
-use Image;
+use App\Http\Controllers\Controller;
+use Intervention\Image\Facades\Image;
 
 class CustomerController extends Controller
 {
